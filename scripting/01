@@ -1,0 +1,10 @@
+#!/bin/bash
+
+list=$(cat /etc/passwd)
+
+while read -r line
+do
+	sp=$(echo $line | tr ':' ' ')
+	arr=($sp)
+	echo ${arr[0]} ${arr[2]} ${arr[5]}
+done <<< "$list"

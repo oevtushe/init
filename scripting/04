@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+sudo echo "@midnight /bin/zsh /home/user/init/04"
+
+csph=/home/user/.MD5SUM
+
+run_md5(){
+	md5sum /etc/crontab > /home/user/.MD5SUM
+}
+
+if [[ -s $csph ]]
+then
+	md5sum --status -c $csph
+	res=$?
+	if (( $res ))
+	then
+		echo 'Dude, someone modified your cronfile !' | mail root -s "Warning !!!"
+		run_md5
+	fi
+else
+	run_md5
+fi

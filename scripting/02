@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo echo "0 4 * * 0 /bin/bash /home/user/init/02 >> /var/log/update_script.log" | sudo crontab -
+sudo apt-get -q -y update
+sudo apt-get -q -y upgrade

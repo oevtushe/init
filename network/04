@@ -1,0 +1,2 @@
+#!/bin/sh
+route -n get default | grep -E -o "gateway.*" | cut -c 10-

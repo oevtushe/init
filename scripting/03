@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+sudo ls -1S ${1}
